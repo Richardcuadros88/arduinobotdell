@@ -12,8 +12,8 @@ ESP8266WiFiMulti wifiMulti;
 
 const char ssid1[] = "foxx-house";
 const char pass1[] = "nuevo1234567891234";
-//const char ssid2[] = "TAMAYO";
-//const char pass2[] = "andres1234567891234";
+//const char ssid2[] = "ALSW2";
+//const char pass2[] = "7210-3607";
 //const char ssid3[] = "ssid";
 //const char pass3[] = "pass";
 
@@ -22,7 +22,43 @@ MQTTClient client;
 
 int Led = 3;
 int Foco = 2;
+unsigned long lastMillis = 0;
 
+void connect() {
+  Serial.print("Conectando con Wifi...");
+  while (wifiMulti.run() != WL_CONNECTED) {
+    digitalWrite(Led, 0);
+    delay(100);
+    digitalWrite(Led, 1);
+    delay(100);
+    Serial.print(".");
+  }
+
+  Serial.print("\nConectando con MQTT...");
+  while (!client.connect("fox_house", "housefox", "123andres")) {
+    digitalWrite(Led, 0);
+    delay(1000);
+    digitalWrite(Led, 1);
+    delay(1000);
+    Serial.print("*");
+  }
+
+  Serial.println("\nConectado :D !");
+
+  client.subscribe("/fs/sala/casa");
+}
+
+void RecibirMensaje(String &topic, String &payload) {
+  Serial.println("Mensaje: " + topic + " - " + payload);
+  if (payload == "1") {
+    digitalWrite(Foco, 1);
+    Serial.println("Navidad Activada");
+  }
+  else {
+    digitalWrite(Foco, 0);
+    Serial.println("Navidad Desactivada");
+  }
+}
 
 void setup() {
   Serial.begin(115200);
@@ -35,52 +71,14 @@ void setup() {
   WiFi.mode(WIFI_STA);//Cambiar modo del Wi-Fi
   delay(100);
   wifiMulti.addAP(ssid1, pass1);
-  //wifiMulti.addAP(ssid2, pass2);
- // wifiMulti.addAP(ssid3, pass3);
+//  wifiMulti.addAP(ssid2, pass2);
+//  wifiMulti.addAP(ssid3, pass3);
 
- client.begin("broker.shiftr.io", net);
+  client.begin("broker.shiftr.io", net);
   client.onMessage(RecibirMensaje);
- // client.onMessage(RecibirMensaje2);
- }
-void connect() {
-  Serial.print("Conectando con Wifi...");
-  while (wifiMulti.run() != WL_CONNECTED) {
-    delay(1000);
-    Serial.print(".");
-  }
 
-  Serial.print("\nConectando con MQTT...");
-  while (!client.connect("fox_house", "housefox", "123andres")) {
-    delay(1000);
-    Serial.print("*");
-  }
-
-  Serial.println("\nConectado :D !");
-
- //Foco = client.subscribe("/fH/habitacion/casa");
- Led =  client.subscribe("/fs/sala/casa");
-
+  connect();
 }
- 
-void RecibirMensaje(String &topic, String &payload) 
-
-{
- 
-  Serial.println("Mensaje: " + topic + " - " + payload);
-  
-  if (payload == "1") {
-    digitalWrite(Foco, 1);
-     
-  //if (payload == "1")
-   // digitalWrite(Led,1);
-    Serial.println("iluminacion Activada");
-  }
-  else {
-    digitalWrite(Foco, 0);
-    //digitalWrite(Led, 0);
-    Serial.println("iluminacion Desactivada");
-  }}
-
 
 void loop() {
   client.loop();

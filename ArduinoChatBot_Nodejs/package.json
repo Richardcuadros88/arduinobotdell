@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "mqtt": "^4.2.1",
     "node-telegram-bot-api": "^0.50.0",
     "save": "^2.4.0"
   }
