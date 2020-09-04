@@ -52,11 +52,11 @@ void RecibirMensaje(String &topic, String &payload) {
   Serial.println("Mensaje: " + topic + " - " + payload);
   if (payload == "1") {
     digitalWrite(Foco, 1);
-    Serial.println("Navidad Activada");
+    Serial.println(" Activada");
   }
   else {
     digitalWrite(Foco, 0);
-    Serial.println("Navidad Desactivada");
+    Serial.println(" Desactivada");
   }
 }
 
