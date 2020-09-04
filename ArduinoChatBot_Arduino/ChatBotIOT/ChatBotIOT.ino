@@ -27,18 +27,18 @@ unsigned long lastMillis = 0;
 void connect() {
   Serial.print("Conectando con Wifi...");
   while (wifiMulti.run() != WL_CONNECTED) {
-    digitalWrite(Led, 0);
-    delay(100);
-    digitalWrite(Led, 1);
+    //digitalWrite(Led, 0);
+   // delay(100);
+   // digitalWrite(Led, 1);
     delay(100);
     Serial.print(".");
   }
 
   Serial.print("\nConectando con MQTT...");
   while (!client.connect("fox_house", "housefox", "123andres")) {
-    digitalWrite(Led, 0);
-    delay(1000);
-    digitalWrite(Led, 1);
+    //digitalWrite(Led, 0);
+   // delay(1000);
+    //digitalWrite(Led, 1);
     delay(1000);
     Serial.print("*");
   }
