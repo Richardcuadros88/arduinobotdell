@@ -34,20 +34,21 @@ bot.on('message', (msg) =>
     client.publish('/fH/habitacion/casa', '0')
   }
 
+//
+//  if (Mensaje.indexOf("sala") >= 0)
 
-  if (Mensaje.indexOf("sala") >= 0)
+//  {
+//    console.log("encendiendo la sala");
+//     bot.sendMessage(chatId, 'Encendere la sala');
+//    client.publish('/fs/sala/casa', '1')
 
-  {
-    console.log("encendiendo la sala");
-     bot.sendMessage(chatId, 'Encendere la sala');
-    client.publish('/fs/sala/casa', '1')
+//  } else if (Mensaje.indexOf("off") >= 0)
+//  {
+  //  console.log("Apagar la sala");
+  //  bot.sendMessage(chatId, 'Apagare la sala');
+  //  client.publish('/fs/sala/casa', '0')
+//}
 
-  } else if (Mensaje.indexOf("off") >= 0)
-  {
-    console.log("Apagar la sala");
-    bot.sendMessage(chatId, 'Apagare la sala');
-    client.publish('/fs/sala/casa', '0')
-}
 {
   bot.sendMessage(chatId, 'Recibí tu mensaje');
 }
