@@ -45,7 +45,7 @@ void connect() {
 
   Serial.println("\nConectado :D !");
 
-  client.subscribe("/fs/habitacion/casa");
+  client.subscribe("/fs/Foco/casa");
 }
 
 void RecibirMensaje(String &topic, String &payload) {
