@@ -31,7 +31,7 @@ bot.on('message', (msg) =>
   {
     console.log("Apagar la habitacion");
     bot.sendMessage(chatId, 'Apagare la habitacion');
-    client.publish('/fH/Fovo/casa', '0')
+    client.publish('/fH/Foco/casa', '0')
   }
 
 //
