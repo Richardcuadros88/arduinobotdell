@@ -25,13 +25,13 @@ bot.on('message', (msg) =>
   {
     console.log("encendiendo la habitacion");
      bot.sendMessage(chatId, 'Encendere la habitacion');
-    client.publish('dell_house/laptdell/123andress', '1')
+    client.publish('/dll/Foco/casa', '1')
 
   } else if (Mensaje.indexOf("apagar") >= 0)
   {
     console.log("Apagar la habitacion");
     bot.sendMessage(chatId, 'Apagare la habitacion');
-    client.publish('dell_house/laptdell/123andress', '0')
+    client.publish('/dll/Foco/casa', '0')
   }
 
 //
