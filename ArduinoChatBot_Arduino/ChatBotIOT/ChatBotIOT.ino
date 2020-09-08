@@ -35,7 +35,7 @@ void connect() {
   }
 
   Serial.print("\nConectando con MQTT...");
-  while (!client.connect("fox_house", "housefox", "123andres")) {
+  while (!client.connect("dell_house", "laptdell", "123andress")) {
     //digitalWrite(Led, 0);
    // delay(1000);
     //digitalWrite(Led, 1);
@@ -45,7 +45,7 @@ void connect() {
 
   Serial.println("\nConectado :D !");
 
-  client.subscribe("/fs/Foco/casa");
+  client.subscribe("/dll/Foco/casa");
 }
 
 void RecibirMensaje(String &topic, String &payload) {
