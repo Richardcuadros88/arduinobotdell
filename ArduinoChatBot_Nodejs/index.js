@@ -39,8 +39,8 @@ bot.on('message', (msg) =>
 
   bot.on('message', (msg) =>
   {
-  const chatId2 = msg.chat.id;
-  console.log("El ID del char" + chatId2);
+  const chatId = msg.chat.id;
+  console.log("El ID del char" + chatId);
   var Mensaje = msg.text.toString().toLocaleLowerCase();
 
 
@@ -48,13 +48,13 @@ bot.on('message', (msg) =>
 
   {
     console.log("encendiendo la sala");
-    bot.sendMessage(chatId2, 'Encendere la sala');
+    bot.sendMessage(chatId, 'Encendere la sala');
     client.publish('/fh/Foco/casa', '1')
 
   } else if (Mensaje.indexOf("off") >= 0)
   {
     console.log("Apagar la sala");
-    bot.sendMessage(chatId2, 'Apagare la sala');
+    bot.sendMessage(chatId, 'Apagare la sala');
     client.publish('/fh/Foco/casa', '0')
 }
 
