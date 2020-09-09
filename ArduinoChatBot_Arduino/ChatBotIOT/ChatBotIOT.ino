@@ -20,7 +20,7 @@ const char pass1[] = "nuevo1234567891234";
 WiFiClient net;
 MQTTClient client;
 
-int Foco2 = 7;
+int Foco2 = 3;
 int Foco = 2;
 unsigned long lastMillis = 0;
 
@@ -62,11 +62,11 @@ Serial.print("\nConectando con MQTT...");
 void RecibirMensaje(String &topic, String &payload ){
   Serial.println("Mensaje: " + topic + " - " + payload);
   if (payload == "1") {
-    digitalWrite(Foco2, 1);
+    digitalWrite(Foco, 1);
     Serial.println(" Activada");
   }
   else {
-    digitalWrite(Foco2, 0);
+    digitalWrite(Foco, 0);
     Serial.println(" Desactivada");
   }
 
