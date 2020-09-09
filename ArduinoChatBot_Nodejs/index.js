@@ -33,7 +33,7 @@ bot.on('message', (msg) =>
     bot.sendMessage(chatId, 'Apagare la habitacion');
     client.publish('/dll/Foco/casa', '0')
   }
-
+}
 
   var client = mqtt.connect('mqtt://housefox:123andres@broker.shiftr.io')
 
@@ -60,7 +60,7 @@ bot.on('message', (msg) =>
 
 {
   bot.sendMessage(chatId, 'Recibí tu mensaje');
-}}
+}
 });
 
 //MiPuerto.setEncoding('utf8');
