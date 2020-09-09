@@ -62,11 +62,11 @@ Serial.print("\nConectando con MQTT...");
 void RecibirMensaje(String &topic, String &payload ){
   Serial.println("Mensaje: " + topic + " - " + payload);
   if (payload == "1") {
-    digitalWrite(Foco, 1);
+    digitalWrite(Foco2, 1);
     Serial.println(" Activada");
   }
   else {
-    digitalWrite(Foco, 0);
+    digitalWrite(Foco2, 0);
     Serial.println(" Desactivada");
   }
 
