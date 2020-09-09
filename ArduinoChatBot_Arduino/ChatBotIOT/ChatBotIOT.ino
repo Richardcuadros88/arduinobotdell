@@ -71,7 +71,7 @@ void RecibirMensaje(String &topic, String &payload ){
   }
 
 }
-
+/*
 void RecibirMensaje2(String &topic, String &payload ){
   Serial.println("Mensaje: " + topic + " - " + payload);
   if (payload == "1") {
@@ -83,7 +83,7 @@ void RecibirMensaje2(String &topic, String &payload ){
     Serial.println(" Desactivada");
   }
 }
-
+*/
 void setup() {
   Serial.begin(115200);
   pinMode(Foco2, OUTPUT);
@@ -100,7 +100,7 @@ void setup() {
 
   client.begin("broker.shiftr.io", net);
   client.onMessage(RecibirMensaje);
-  client.onMessage(RecibirMensaje2);
+  //client.onMessage(RecibirMensaje2);
 
   connect();
 }
