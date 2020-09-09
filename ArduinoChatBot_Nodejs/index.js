@@ -60,7 +60,7 @@ bot.on('message', (msg) =>
 
 {
   bot.sendMessage(chatId, 'Recibí tu mensaje');
-}
+}}
 });
 
 //MiPuerto.setEncoding('utf8');
