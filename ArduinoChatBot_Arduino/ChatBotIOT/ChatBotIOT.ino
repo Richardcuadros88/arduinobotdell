@@ -20,7 +20,7 @@ const char pass1[] = "nuevo1234567891234";
 WiFiClient net;
 MQTTClient client;
 
-int Foco2 = 3;
+int Foco2 = 4;
 int Foco = 2;
 unsigned long lastMillis = 0;
 
