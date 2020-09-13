@@ -21,7 +21,7 @@ WiFiClient net;
 MQTTClient client;
 
 int Foco2 = 3;
-int Foco = 2;
+int Foco = 0;
 unsigned long lastMillis = 0;
 
 void connect() {
