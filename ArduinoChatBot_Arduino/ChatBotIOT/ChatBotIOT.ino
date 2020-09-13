@@ -51,6 +51,7 @@ Serial.print("\nConectando con MQTT...");
   }
   Serial.println("\nConectado :D !");
   client.subscribe("/dll/Foco/casa");
+  client.subscribe("/fh/Foco/casa");
 
 }}
 
@@ -74,6 +75,7 @@ void RecibirMensaje(String &topic, String &payload ){
 /*
 void RecibirMensaje2(String &topic, String &payload ){
   Serial.println("Mensaje: " + topic + " - " + payload);
+  
   if (payload == "1") {
     digitalWrite(Foco2, 1);
     Serial.println(" Activada");
