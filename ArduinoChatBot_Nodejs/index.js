@@ -50,13 +50,13 @@ bot.on('message', (msg) =>
   {
     console.log("encendiendo la sala");
     bot.sendMessage(chatId, 'Encendere la sala');
-    client.publish('/fh/Foco/casa', '1')
+    client.publish('/dll/Foco/casa', '0')
 
   } else if (Mensaje.indexOf("off") >= 0)
   {
     console.log("Apagar la sala");
     bot.sendMessage(chatId, 'Apagare la sala');
-    client.publish('/fh/Foco/casa', '0')
+    client.publish('/dll/Foco/casa', '0')
 }
 
 {

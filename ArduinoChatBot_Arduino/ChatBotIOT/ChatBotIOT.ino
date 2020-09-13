@@ -59,14 +59,19 @@ void RecibirMensaje(String &topic, String &payload ){
   if (payload == "1") {
     digitalWrite(Foco, 1);
     Serial.println(" Activada");
+
+  if (payload == "1") {
+    digitalWrite(Foco2, 1);
+    Serial.println(" Activada");
   }
   else {
     digitalWrite(Foco, 0);
+    digitalWrite(Foco2, 0);
     Serial.println(" Desactivada");
   }
 
 }
-
+/*
 void RecibirMensaje2(String &topic, String &payload ){
   Serial.println("Mensaje: " + topic + " - " + payload);
   if (payload == "1") {
@@ -76,7 +81,9 @@ void RecibirMensaje2(String &topic, String &payload ){
   else {
     digitalWrite(Foco2, 0);
     Serial.println(" Desactivada");
+  
   }
+*/
 }
 
 void setup() {
@@ -95,7 +102,7 @@ void setup() {
 
   client.begin("broker.shiftr.io", net);
   client.onMessage(RecibirMensaje);
-  client.onMessage(RecibirMensaje2);
+//  client.onMessage(RecibirMensaje2);
 
   connect();
 }
