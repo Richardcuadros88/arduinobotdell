@@ -34,15 +34,15 @@ void connect() {
     delay(100);
     Serial.print(".");
   }
-//{
-  //Serial.print("\nConectando con MQTT...");
-  //while (!client.connect("dell_house", "laptdell", "123andress")) {
-    //delay(1000);
-    //Serial.print("*");
-  //}
-  //Serial.println("\nConectado :D/ !");
-  //client.subscribe("/fh/Foco/casa");
-  //}
+{
+  Serial.print("\nConectando con MQTT...");
+  while (!client.connect("dell_house2", "laptdell", "123andress")) {
+    delay(1000);
+   Serial.print("*");
+  }
+  Serial.println("\nConectado :D/ !");
+  client.subscribe("/fh/Foco/casa");
+  }
   {
 Serial.print("\nConectando con MQTT...");
   while (!client.connect("dell_house", "housefox", "123andres")) {
@@ -51,7 +51,7 @@ Serial.print("\nConectando con MQTT...");
   }
   Serial.println("\nConectado :D !");
   client.subscribe("/dll/Foco/casa");
-  client.subscribe("/fh/Foco/casa");
+  
 
 }}
 
