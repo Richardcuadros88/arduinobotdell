@@ -20,9 +20,10 @@ const char pass1[] = "nuevo1234567891234";
 WiFiClient net;
 MQTTClient client;
 
-int Foco2 = 3;
+int Foco2 = 2;
 int Foco = 0;
-unsigned long lastMillis = 0;
+
+ unsigned long lastMillis = 0;
 
 void connect() {
   Serial.print("Conectando con Wifi...");
@@ -36,9 +37,6 @@ void connect() {
 {
   Serial.print("\nConectando con MQTT...");
   while (!client.connect("dell_house", "laptdell", "123andress")) {
-    //digitalWrite(Led, 0);
-   // delay(1000);
-    //digitalWrite(Led, 1);
     delay(1000);
     Serial.print("*");
   }
@@ -48,15 +46,12 @@ void connect() {
   {
 Serial.print("\nConectando con MQTT...");
   while (!client.connect("dell_house", "housefox", "123andres")) {
-    //digitalWrite(Led, 0);
-   // delay(1000);
-    //digitalWrite(Led, 1);
     delay(1000);
     Serial.print("*");
   }
   Serial.println("\nConectado :D !");
   client.subscribe("/dll/Foco/casa");
-  
+
 }}
 
 void RecibirMensaje(String &topic, String &payload ){
@@ -71,7 +66,7 @@ void RecibirMensaje(String &topic, String &payload ){
   }
 
 }
-/*
+
 void RecibirMensaje2(String &topic, String &payload ){
   Serial.println("Mensaje: " + topic + " - " + payload);
   if (payload == "1") {
@@ -83,7 +78,7 @@ void RecibirMensaje2(String &topic, String &payload ){
     Serial.println(" Desactivada");
   }
 }
-*/
+
 void setup() {
   Serial.begin(115200);
   pinMode(Foco2, OUTPUT);
@@ -100,7 +95,7 @@ void setup() {
 
   client.begin("broker.shiftr.io", net);
   client.onMessage(RecibirMensaje);
-  //client.onMessage(RecibirMensaje2);
+  client.onMessage(RecibirMensaje2);
 
   connect();
 }

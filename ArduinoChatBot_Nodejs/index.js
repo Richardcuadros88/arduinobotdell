@@ -1,3 +1,4 @@
+//RICHARD CUADROS
 
 const TelegramBot = require('node-telegram-bot-api');
 var mqtt = require('mqtt')
