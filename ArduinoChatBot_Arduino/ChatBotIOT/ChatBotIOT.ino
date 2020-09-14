@@ -39,7 +39,7 @@ void connect() {
    Serial.print("*");
   }
   Serial.println("\nConectado :D/ !");
-  client.subscribe("/fh/Foco/sasa");
+  client.subscribe("/fh/Foco/sala");
   }
   {
 Serial.print("\nConectando con MQTT...");
