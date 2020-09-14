@@ -73,10 +73,11 @@ void RecibirMensaje(String &topic, String &payload ){
 
 }
 
-void RecibirMensaje2(String &topic, String &payload ){
-  Serial.println("Mensaje: " + topic + " - " + payload);
+void RecibirMensaje2(String &topic, String &payload2 ){
+  Serial.println("Mensaje: " + topic + " - " + payload2
+  );
   
-  if (payload == "1") {
+  if (payload2 == "1") {
     digitalWrite(Foco2, 1);
     Serial.println(" Activada");
   }
