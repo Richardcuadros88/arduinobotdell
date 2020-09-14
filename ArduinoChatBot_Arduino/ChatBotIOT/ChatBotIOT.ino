@@ -33,7 +33,8 @@ void connect() {
   }
 {
   Serial.print("\nConectando con MQTT...");
-  while (!client.connect("dell_sala2", "laptdell", "123andress")) {
+  while (!client.connect("dell_house", "housefox", "123andres")) {
+ // while (!client.connect("dell_sala2", "laptdell", "123andress")) {
     delay(1000);
    Serial.print("*");
   }

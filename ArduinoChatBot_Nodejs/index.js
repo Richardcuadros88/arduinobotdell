@@ -36,7 +36,7 @@ bot.on('message', (msg) =>
   }
 })
 
-  var client = mqtt.connect('mqtt://laptdell:123andress@broker.shiftr.io' )
+  var client = mqtt.connect('mqtt://housefox:123andres@broker.shiftr.io')
 
   bot.on('message', (msg) =>
   {
