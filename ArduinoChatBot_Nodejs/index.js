@@ -12,7 +12,7 @@ var IdMiChat = 1189408516;
 //var MiPuerto = new SerialPort('COM4', {
   //baudRate: 9600,
   //autoOpen: true
-var client = mqtt.connect('mqtt://laptdell:123andress@broker.shiftr.io')
+var client = mqtt.connect('mqtt://housefox:123andres@broker.shiftr.io')
 
 bot.on('message', (msg) =>
 
@@ -36,7 +36,7 @@ bot.on('message', (msg) =>
   }
 })
 
-  var client = mqtt.connect('mqtt://housefox:123andres@broker.shiftr.io')
+  var client = mqtt.connect('mqtt://laptdell:123andress@broker.shiftr.io' )
 
   bot.on('message', (msg) =>
   {
