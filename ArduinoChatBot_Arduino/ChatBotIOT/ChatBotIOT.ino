@@ -28,34 +28,27 @@ int Foco = 0;
 void connect() {
   Serial.print("Conectando con Wifi...");
   while (wifiMulti.run() != WL_CONNECTED) {
-    //digitalWrite(Led, 0);
-   // delay(100);
-   // digitalWrite(Led, 1);
     delay(100);
     Serial.print(".");
   }
 {
   Serial.print("\nConectando con MQTT...");
-  while (!client.connect("dell_house2", "laptdell", "123andress")) {
+  while (!client.connect("dell_sala2", "laptdell", "123andress")) {
     delay(1000);
    Serial.print("*");
   }
   Serial.println("\nConectado :D/ !");
-  client.subscribe("/fh/Foco/casa");
+  client.subscribe("/fh/Foco/sasa");
   }
   {
 Serial.print("\nConectando con MQTT...");
-  while (!client.connect("dell_house", "housefox", "123andres") )
-    {
+  while (!client.connect("dell_house", "housefox", "123andres")) {
     delay(1000);
     Serial.print("*");
-  
-  }
-  
-  Serial.println("\nConectado :D !");
+    }
+   Serial.println("\nConectado :D !");
   client.subscribe("/dll/Foco/casa");
-  //client.subscribe("/fh/Foco/casa");
-
+ 
 }}
 
 void RecibirMensaje(String &topic, String &payload ){
